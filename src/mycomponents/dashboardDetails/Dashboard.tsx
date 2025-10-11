@@ -1,30 +1,81 @@
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import DbBarChart from "./Charts/DbBarChart";
 import DashBoardHeader from "./DashBoardHeader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAlarmClock, faClock } from "@fortawesome/free-solid-svg-icons";
+import {  faClock } from "@fortawesome/free-solid-svg-icons";
 import { Separator } from "@/components/ui/Separator";
+import DbLineChart from "./Charts/DbLineChart";
+import { cn } from "@/lib/utils";
+import type { JSX } from "react";
 
 
+export interface chartTypes{
+  chart : JSX.Element,
+  bg : string,
+  title : string,
+  body : string,
+  footer : string
+}
 
 const Dashboard = () => {
-  return (
+ const chartsComponents : chartTypes[] = [
+    {
+      chart: <DbBarChart/> ,
+      bg: "bg-blue-500",
+      title: "Website Views",
+      body: "Last Campaign Performance",
+      footer : "campaign sent 2 days ago"
+    },
+    {
+      chart: <DbLineChart/>,
+      bg: "bg-green-500",
+      title: "Daily sales",
+      body: "(+15%) increase in today sales",
+      footer : "updated 4 min ago"
+    },
+    {
+      chart: <DbLineChart/>,
+      bg: "bg-black",
+      title: "Completed Tasks",
+      body: "Last Campaign Performance",
+      footer : "just updated "
+    },
+  ];  return (
     <div className="flex items-center flex-col m-0">
-      <DashBoardHeader/>
-      <div className="grid grid-cols-3 h-full w-full py-5">
-        <Card className="relative h-full">
-          <CardHeader className=" w-full h-full absolute -top-10">
-            <CardTitle className="w-full h-[200px]  text-white bg-blue-500 rounded-lg"><DbBarChart/></CardTitle>
-          </CardHeader>
-          <CardContent className="flex flex-col pt-36">
-            <span className="font-bold">Website Views</span>
-            <span>Last Campaign Performance</span>
-          </CardContent>
-          <Separator className="w-[80%] m-auto"/>
-          <CardFooter>
-            <FontAwesomeIcon icon={faClock} className="px-2" />Campaign sent to 2 days ago
-          </CardFooter>
-        </Card>
+      <DashBoardHeader />
+      <div className="grid grid-cols-3 h-full w-full py-5 gap-5">
+        {chartsComponents.map((item, idx) => {
+          const Chartcom = item.chart
+          return (
+            <Card className="relative h-full inset-shadow-sm" key={idx}>
+              <CardHeader className=" w-full h-full absolute -top-10">
+                <CardTitle
+                  className={cn(
+                    "w-full h-[200px]  text-white rounded-lg",
+                    item.bg
+                  )}
+                >
+                  {item.chart}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-col pt-36">
+                <span className="font-bold">{item.title}</span>
+                <span>{item.body}</span>
+              </CardContent>
+              <Separator className="w-[80%] m-auto" />
+              <CardFooter>
+                <FontAwesomeIcon icon={faClock} className="px-2" />
+                {item.footer}
+              </CardFooter>
+            </Card>
+          );
+        })}
       </div>
     </div>
   );

@@ -17,7 +17,7 @@ const DashBoardHeader = () => {
     <section className="grid grid-cols-4 py-9 items-center gap-4 w-full">
       {DashboardHeaderData.map((item, idx) => {
         return (
-          <Card key={idx}>
+          <Card key={idx} className="gap-1.5">
             <CardHeader className="relative">
               <CardTitle
                 className={cn(
@@ -35,7 +35,7 @@ const DashBoardHeader = () => {
                 <span className="m-auto font-bold text-2xl">{item.number}</span>
               </CardAction>
             </CardHeader>
-            <Separator className="w-[80%] m-auto h-0.5 " />
+            <Separator className="w-[80%] m-auto " />
             <CardFooter>
               <p>
                 <span className="text-green-500 font-bold">
