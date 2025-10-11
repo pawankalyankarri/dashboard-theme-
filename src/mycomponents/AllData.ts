@@ -5,6 +5,9 @@ import {
   faShop,
   faUserPlus,
 } from "@fortawesome/free-solid-svg-icons";
+import DbBarChart from "./dashboardDetails/Charts/DbBarChart";
+import DbLineChart from "./dashboardDetails/Charts/DbLineChart";
+import type React from "react";
 
 export interface DashboardTopType {
   icon: IconDefinition;
@@ -19,6 +22,12 @@ export interface BarChartDataType {
     day :string,
     sales : number
 }
+
+export interface LineChartDatatype{
+  month : string,
+  sales : number
+}
+
 
 export const DashboardHeadData: DashboardTopType[] = [
     {
@@ -64,3 +73,20 @@ export const BarChartData : BarChartDataType[] = [
   { day: "Sat", sales: 40 },
   { day: "Sun", sales: 30 },
 ];
+
+export const LineChartData : LineChartDatatype[] = [
+  { month: "Jan", sales: 120 },
+  { month: "Feb", sales: 240 },
+  { month: "Mar", sales: 310 },
+  { month: "Apr", sales: 180 },
+  { month: "May", sales: 270 },
+  { month: "Jun", sales: 350 },
+  { month: "Jul", sales: 400 },
+  { month: "Aug", sales: 260 },
+  { month: "Sep", sales: 320 },
+  { month: "Oct", sales: 290 },
+  { month: "Nov", sales: 370 },
+  { month: "Dec", sales: 200 },
+];
+
+

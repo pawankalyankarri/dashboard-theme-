@@ -31,22 +31,22 @@ const DbBarChart = () => {
       am5xy.CategoryAxis.new(root, {
         categoryField: "day",
         renderer: am5xy.AxisRendererX.new(root, {
-          minGridDistance: 20,
+          minGridDistance: 5,
         }),
       })
     );
-    xAxis.get("renderer").labels.template.setAll({
-      fill: am5.color("#fff"),
-    });
 
+    xAxis.get("renderer").labels.template.setAll({fill : am5.color("#fff")})
+
+   
     // Y Axis — Value
     const yAxis = chart.yAxes.push(
       am5xy.ValueAxis.new(root, {
-        renderer: am5xy.AxisRendererY.new(root, {  }),
+        renderer: am5xy.AxisRendererY.new(root, {}),
       })
     );
 
-    yAxis.get("renderer").labels.template.setAll({fill:am5.color("#fff")})
+    yAxis.get("renderer").labels.template.setAll({ fill: am5.color("#fff") });
 
     // Series — use categoryXField instead of valueXField
     const series = chart.series.push(
@@ -57,17 +57,30 @@ const DbBarChart = () => {
         fill: am5.color("#fff"),
         valueYField: "sales",
         categoryXField: "day",
+        // tooltipText : "{categoryX}: {valueY}",
+        // interactive : true,
         tooltip: am5.Tooltip.new(root, { labelText: "{categoryX}: {valueY}" }),
       })
     );
+    // day in first letter
+
+    // series.data.setAll(
+    //   data.map((item) => ({
+    //     day: item.day.charAt(0),
+    //     sales: item.sales,
+    //   }))
+    // );
+
 
     // Style columns
     series.columns.template.setAll({
       cornerRadiusTL: 10,
       cornerRadiusTR: 10,
       strokeOpacity: 0,
-      width: am5.percent(60),
+      tooltipText: "{categoryX}, sales: {valueY}",  // tooltip hover time
+      width: am5.percent(20),
     });
+
 
     // Add data to both axis and series
     xAxis.data.setAll(data);
