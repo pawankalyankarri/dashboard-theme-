@@ -12,59 +12,66 @@ import type React from "react";
 export interface DashboardTopType {
   icon: IconDefinition;
   title: string;
-  number: string|number;
+  number: string | number;
   footertext: string;
-  footerpercent : string
-  color : string;
+  footerpercent: string;
+  color: string;
 }
 
 export interface BarChartDataType {
-    day :string,
-    sales : number
+  day: string;
+  sales: number;
 }
 
-export interface LineChartDatatype{
-  month : string,
-  sales : number
+export interface LineChartDatatype {
+  month: string;
+  sales: number;
 }
 
+export interface CompaniesDataTypes {
+  companiesIcon : string,
+  companies : string,
+  members : string[],
+  budget : number | string,
+  completion : number
+}
 
 export const DashboardHeadData: DashboardTopType[] = [
-    {
-      icon: faCouch,
-      title: "Bookings",
-      number: 281,
-      footertext: "than lask week",
-      footerpercent :"+55% ",
-      color : "bg-gray-900"
-    },
-    {
-      icon: faChartSimple,
-      title: "today Users",
-      number: 2300,
-      footertext: "than lask month",
-      footerpercent :"+3% ",
-      color : "bg-blue-500"
-    },
-    {
-      icon: faShop,
-      title: "Revenue",
-      number: '34k',
-      footertext: "than yesterday",
-      footerpercent :"+1% ",
-      color : "bg-green-500"
-    },
-    {
-      icon: faUserPlus,
-      title: "followers",
-      number: "+91",
-      footertext: "Just updated",
-      footerpercent :"",
-      color : "bg-pink-500"
-    },
-  ];
+  {
+    icon: faCouch,
+    title: "Bookings",
+    number: 281,
+    footertext: "than lask week",
+    footerpercent: "+55% ",
+    color: "bg-gray-900",
+  },
+  {
+    icon: faChartSimple,
+    title: "today Users",
+    number: 2300,
+    footertext: "than lask month",
+    footerpercent: "+3% ",
+    color: "bg-blue-500",
+  },
+  {
+    icon: faShop,
+    title: "Revenue",
+    number: "34k",
+    footertext: "than yesterday",
+    footerpercent: "+1% ",
+    color: "bg-green-500",
+  },
+  {
+    icon: faUserPlus,
+    title: "followers",
+    number: "+91",
+    footertext: "Just updated",
+    footerpercent: "",
+    color: "bg-pink-500",
+  },
+];
 
-export const BarChartData : BarChartDataType[] = [
+export const BarChartData: BarChartDataType[] = [
   { day: "Mon", sales: 45 },
   { day: "Tue", sales: 39 },
   { day: "Wed", sales: 55 },
@@ -74,7 +81,7 @@ export const BarChartData : BarChartDataType[] = [
   { day: "Sun", sales: 30 },
 ];
 
-export const LineChartData : LineChartDatatype[] = [
+export const LineChartData: LineChartDatatype[] = [
   { month: "Jan", sales: 120 },
   { month: "Feb", sales: 240 },
   { month: "Mar", sales: 310 },
@@ -89,4 +96,48 @@ export const LineChartData : LineChartDatatype[] = [
   { month: "Dec", sales: 200 },
 ];
 
+export const CompaniesData : CompaniesDataTypes[] = [
+  {
+     companiesIcon : "",
+     companies: "Material UI XD Version",
+     members : ["",""],
+     budget : 14000,
+     completion : 60
+  },
+  {
+     companiesIcon : "",
+     companies: "Add Progress Track",
+     members : ["",""],
+     budget : 3000,
+     completion : 20
+  },
+  {
+     companiesIcon : "",
+     companies: "Fix Platform Errors",
+     members : ["",""],
+     budget : "Not Set",
+     completion : 100
+  },
+  {
+     companiesIcon : "",
+     companies: "Launch our Mobile App",
+     members : ["",""],
+     budget : 20500,
+     completion : 100
+  },
+  {
+     companiesIcon : "",
+     companies: "Add the New Pricing Page",
+     members : ["",""],
+     budget : 500,
+     completion : 40
+  },
+  {
+     companiesIcon : "",
+     companies: "Redesign New Online Shop",
+     members : ["",""],
+     budget : 2000,
+     completion : 70
+  },
 
+  ];
