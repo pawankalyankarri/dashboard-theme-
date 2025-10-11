@@ -13,6 +13,7 @@ import { Separator } from "@/components/ui/Separator";
 import DbLineChart from "./Charts/DbLineChart";
 import { cn } from "@/lib/utils";
 import type { JSX } from "react";
+import CompaniesTable from "./CompaniesTable";
 
 
 export interface chartTypes{
@@ -77,6 +78,8 @@ const Dashboard = () => {
           );
         })}
       </div>
+      <div className="grid grid-cols-3 w-full"><div className="col-span-2 w-full"><CompaniesTable/></div>
+      <div className="col-span-1">dfd</div></div>
     </div>
   );
 };
