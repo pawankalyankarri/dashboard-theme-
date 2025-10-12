@@ -15,6 +15,7 @@ import { faCheck, faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 import { Slider } from "@/components/ui/slider";
 import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const CompaniesTable = () => {
   const TableData = CompaniesData as CompaniesDataTypes[];
@@ -29,28 +30,54 @@ const CompaniesTable = () => {
               className="text-blue-500 font-bold text-md  "
             />
             <span className="font-semibold">30 done</span> this month
-          </span>  
+          </span>
         </div>
-        <div><FontAwesomeIcon icon={faEllipsisV} className="px-5"/></div>
+        <div>
+          <FontAwesomeIcon icon={faEllipsisV} className="px-5" />
+        </div>
       </div>
       <Table>
-        <TableHeader >
+        <TableHeader>
           <TableRow className="font-bold">
-            <TableHead className="w-[100px] text-gray-400 ">Companies</TableHead>
+            <TableHead className=" text-gray-400 ">Companies</TableHead>
             <TableHead className="text-gray-400">Members</TableHead>
             <TableHead className="text-gray-400">Budget</TableHead>
-            <TableHead className="text-right text-gray-400">Completion</TableHead>
+            <TableHead className="text-right text-gray-400">
+              Completion
+            </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {TableData.map((item, idx) => {
             return (
-              <TableRow key={idx} className="p-2">
-                <TableCell className="font-medium">{item.companies}</TableCell>
-                <TableCell>{item.members}</TableCell>
-                <TableCell>{item.budget} </TableCell>
+              <TableRow key={idx} className="">
+                <TableCell className="font-medium py-5">
+                  {item.companies}
+                </TableCell>
+                <TableCell
+                      
+                      className="flex -space-x-2 justify-center items-center"
+                    >
+                {item.members.map((icon, idx) => {
+                  return (
+                    
+                      <Avatar key={idx} className="w-5.5 h-5.5 cursor-pointer ">
+                        <AvatarImage src={icon} />
+                        <AvatarFallback>CN</AvatarFallback>
+                      </Avatar>
+                    
+                  );
+                })}
+                </TableCell>
+                <TableCell className="font-bold text-gray-400 text-xs">{typeof item.budget === "number" ? <span className="">$</span> : ""}{item.budget} </TableCell>
                 <TableCell className="text-right">
-                  <Progress value={item.completion} className={cn("[&>div]:bg-blue-500",item.completion===100 ? "[&>div]:bg-green-500":"" )}/>
+                  <Progress
+                    value={item.completion}
+                    className={cn(
+                      "[&>div]:bg-blue-500 [&>div]:rounded-r-full",
+                      item.completion === 100 ? "[&>div]:bg-green-500" : ""
+                    )}
+                  />
                 </TableCell>
               </TableRow>
             );

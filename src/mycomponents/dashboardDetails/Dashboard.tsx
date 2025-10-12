@@ -14,6 +14,8 @@ import DbLineChart from "./Charts/DbLineChart";
 import { cn } from "@/lib/utils";
 import type { JSX } from "react";
 import CompaniesTable from "./CompaniesTable";
+import OrdersOverview from "./OrdersOverview";
+import DashboardFooter from "./DashboardFooter";
 
 
 export interface chartTypes{
@@ -52,7 +54,6 @@ const Dashboard = () => {
       <DashBoardHeader />
       <div className="grid grid-cols-3 h-full w-full py-5 gap-5">
         {chartsComponents.map((item, idx) => {
-          const Chartcom = item.chart
           return (
             <Card className="relative h-full inset-shadow-sm" key={idx}>
               <CardHeader className=" w-full h-full absolute -top-10">
@@ -78,8 +79,10 @@ const Dashboard = () => {
           );
         })}
       </div>
-      <div className="grid grid-cols-3 w-full"><div className="col-span-2 w-full"><CompaniesTable/></div>
-      <div className="col-span-1">dfd</div></div>
+      <div className="grid grid-cols-3 gap-5 w-full"><div className="col-span-2 w-full"><CompaniesTable/></div>
+      <div className="col-span-1"><OrdersOverview/></div>
+      </div>
+      <div className="w-full"><DashboardFooter/></div>
     </div>
   );
 };

@@ -4,6 +4,10 @@ import {
   faChartSimple,
   faShop,
   faUserPlus,
+  faBell,
+  faNewspaper,
+  faCartShopping,
+  faKey,
 } from "@fortawesome/free-solid-svg-icons";
 import DbBarChart from "./dashboardDetails/Charts/DbBarChart";
 import DbLineChart from "./dashboardDetails/Charts/DbLineChart";
@@ -29,11 +33,18 @@ export interface LineChartDatatype {
 }
 
 export interface CompaniesDataTypes {
-  companiesIcon : string,
-  companies : string,
-  members : string[],
-  budget : number | string,
-  completion : number
+  companiesIcon: string;
+  companies: string;
+  members: string[];
+  budget: number | string;
+  completion: number;
+}
+
+export interface OrdersDataTypes {
+  title: string;
+  icon: IconDefinition;
+  date: string;
+  color: string;
 }
 
 export const DashboardHeadData: DashboardTopType[] = [
@@ -96,48 +107,103 @@ export const LineChartData: LineChartDatatype[] = [
   { month: "Dec", sales: 200 },
 ];
 
-export const CompaniesData : CompaniesDataTypes[] = [
+export const CompaniesData: CompaniesDataTypes[] = [
   {
-     companiesIcon : "",
-     companies: "Material UI XD Version",
-     members : ["",""],
-     budget : 14000,
-     completion : 60
+    companiesIcon: "",
+    companies: "Material UI XD Version",
+    members: [
+      "https://demos.creative-tim.com/material-dashboard-react/static/media/team-1.0fd36e0ee93dcfacdef8.jpg",
+      "https://demos.creative-tim.com/material-dashboard-react/static/media/team-2.13ae2ce3e12f4cfed420.jpg",
+      "	https://demos.creative-tim.com/material-dashboard-react/static/media/team-3.0ef0be95e6850814c79e.jpg",
+      "https://demos.creative-tim.com/material-dashboard-react/static/media/team-4.85c82b6e60178804017f.jpg",
+    ],
+    budget: 14000,
+    completion: 60,
   },
   {
-     companiesIcon : "",
-     companies: "Add Progress Track",
-     members : ["",""],
-     budget : 3000,
-     completion : 20
+    companiesIcon: "",
+    companies: "Add Progress Track",
+    members: [
+      "https://demos.creative-tim.com/material-dashboard-react/static/media/team-1.0fd36e0ee93dcfacdef8.jpg",
+      "https://demos.creative-tim.com/material-dashboard-react/static/media/team-4.85c82b6e60178804017f.jpg",
+    ],
+    budget: 3000,
+    completion: 20,
   },
   {
-     companiesIcon : "",
-     companies: "Fix Platform Errors",
-     members : ["",""],
-     budget : "Not Set",
-     completion : 100
+    companiesIcon: "",
+    companies: "Fix Platform Errors",
+    members: [
+      "	https://demos.creative-tim.com/material-dashboard-react/static/media/team-3.0ef0be95e6850814c79e.jpg",
+      "https://demos.creative-tim.com/material-dashboard-react/static/media/team-4.85c82b6e60178804017f.jpg",
+      "https://demos.creative-tim.com/material-dashboard-react/static/media/team-1.0fd36e0ee93dcfacdef8.jpg",
+      "https://demos.creative-tim.com/material-dashboard-react/static/media/team-2.13ae2ce3e12f4cfed420.jpg",
+    ],
+    budget: "Not Set",
+    completion: 100,
   },
   {
-     companiesIcon : "",
-     companies: "Launch our Mobile App",
-     members : ["",""],
-     budget : 20500,
-     completion : 100
-  },
-  {
-     companiesIcon : "",
-     companies: "Add the New Pricing Page",
-     members : ["",""],
-     budget : 500,
-     completion : 40
-  },
-  {
-     companiesIcon : "",
-     companies: "Redesign New Online Shop",
-     members : ["",""],
-     budget : 2000,
-     completion : 70
-  },
+    companiesIcon: "",
+    companies: "Launch our Mobile App",
+    members: [
+      "https://demos.creative-tim.com/material-dashboard-react/static/media/team-2.13ae2ce3e12f4cfed420.jpg",
+      "https://demos.creative-tim.com/material-dashboard-react/static/media/team-1.0fd36e0ee93dcfacdef8.jpg",
 
-  ];
+    ],
+    budget: 20500,
+    completion: 100,
+  },
+  {
+    companiesIcon: "",
+    companies: "Add the New Pricing Page",
+    members: [
+      "	https://demos.creative-tim.com/material-dashboard-react/static/media/team-3.0ef0be95e6850814c79e.jpg",
+    ],
+
+    budget: 500,
+    completion: 40,
+  },
+  {
+    companiesIcon: "",
+    companies: "Redesign New Online Shop",
+    members: [
+      "https://demos.creative-tim.com/material-dashboard-react/static/media/team-4.85c82b6e60178804017f.jpg",
+      "https://demos.creative-tim.com/material-dashboard-react/static/media/team-2.13ae2ce3e12f4cfed420.jpg",
+    ],
+    budget: 2000,
+    completion: 70,
+  },
+];
+
+export const OrdersData: OrdersDataTypes[] = [
+  {
+    title: "$2400, Design changes",
+    icon: faBell,
+    date: "22 DEC 7:20 PM",
+    color: "bg-green-600",
+  },
+  {
+    title: "New order #1832412",
+    icon: faNewspaper,
+    date: "21 DEC 11 PM",
+    color: "bg-red-400",
+  },
+  {
+    title: "Server payments for April",
+    icon: faCartShopping,
+    date: "21 DEC 9:34 PM",
+    color: "bg-blue-600",
+  },
+  {
+    title: "New card added for order #4395133",
+    icon: faNewspaper,
+    date: "20 DEC 2:20 AM",
+    color: "bg-orange-600",
+  },
+  {
+    title: "New card added for order #4395133",
+    icon: faKey,
+    date: "18 DEC 4:54 AM",
+    color: "bg-pink-600",
+  },
+];
