@@ -26,6 +26,10 @@ const DbBarChart = () => {
       })
     );
 
+    let cursor = chart.set("cursor", am5xy.XYCursor.new(root, {}));
+    cursor.lineY.set("visible", false);
+    cursor.lineX.set("visible",false)
+
     // X Axis — Category
     const xAxis = chart.xAxes.push(
       am5xy.CategoryAxis.new(root, {
@@ -35,20 +39,25 @@ const DbBarChart = () => {
         }),
       })
     );
-
+    // setting color to the labels
     xAxis.get("renderer").labels.template.setAll({fill : am5.color("#fff")})
-
+    
+    xAxis.get("renderer").grid.template.setAll({stroke : am5.color("#fff")})
    
     // Y Axis — Value
     const yAxis = chart.yAxes.push(
       am5xy.ValueAxis.new(root, {
+        min : 0,
+        max : 60,
+        strictMinMax : true,
         renderer: am5xy.AxisRendererY.new(root, {}),
       })
     );
-
+    // adding color to the text 
     yAxis.get("renderer").labels.template.setAll({ fill: am5.color("#fff") });
-
-    // Series — use categoryXField instead of valueXField
+    //adding color to the grid lines
+    yAxis.get("renderer").grid.template.setAll({stroke : am5.color("#fff")})
+    // Series
     const series = chart.series.push(
       am5xy.ColumnSeries.new(root, {
         name: "Sales",
@@ -57,9 +66,7 @@ const DbBarChart = () => {
         fill: am5.color("#fff"),
         valueYField: "sales",
         categoryXField: "day",
-        // tooltipText : "{categoryX}: {valueY}",
-        // interactive : true,
-        tooltip: am5.Tooltip.new(root, { labelText: "{categoryX}: {valueY}" }),
+        tooltip: am5.Tooltip.new(root, { }),
       })
     );
     // day in first letter

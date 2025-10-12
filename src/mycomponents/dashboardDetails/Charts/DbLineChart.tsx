@@ -6,8 +6,7 @@ import type { LineChartDatatype } from "@/mycomponents/AllData";
 import { LineChartData } from "@/mycomponents/AllData";
 const DbLineChart: React.FC = () => {
   const chartRef = useRef<HTMLDivElement>(null);
-  const chartData = LineChartData as LineChartDatatype[]
-
+  const chartData = LineChartData as LineChartDatatype[];
 
   useLayoutEffect(() => {
     if (!chartRef.current) return;
@@ -27,14 +26,18 @@ const DbLineChart: React.FC = () => {
         panY: false,
         wheelX: "none",
         wheelY: "none",
-        
-        
-        
       })
     );
+    let cursor = chart.set(
+      "cursor",
+      am5xy.XYCursor.new(root, {
+        behavior: "zoomX",
+      })
+    );
+    cursor.lineY.set("visible", false);
+    cursor.lineX.set("visible", false);
 
     //  Sample data (month & sales)
-    
 
     // X Axis (CategoryAxis)
     const xAxis = chart.xAxes.push(
@@ -42,19 +45,15 @@ const DbLineChart: React.FC = () => {
         categoryField: "month",
         renderer: am5xy.AxisRendererX.new(root, {
           minGridDistance: 20,
-          
-          
-          
         }),
       })
     );
     // for grid line to the white color
     xAxis.get("renderer").grid.template.setAll({
-        stroke : am5.color("#fff"),
-       
-    })
+      stroke: am5.color("#808080"),
+      strokeOpacity: 0,
+    });
 
-    
     // Label white color
     xAxis.get("renderer").labels.template.setAll({
       fill: am5.color("#fff"),
@@ -62,27 +61,28 @@ const DbLineChart: React.FC = () => {
       fontWeight: "500",
     });
 
-    
     const yAxis = chart.yAxes.push(
       am5xy.ValueAxis.new(root, {
-        min : 0,
-        max : 800,
-        strictMinMax : true,
-        renderer: am5xy.AxisRendererY.new(root, {stroke : am5.color("#fff")}),
+        min: 0,
+        max: 800,
+        strictMinMax: true,
+        renderer: am5xy.AxisRendererY.new(root, { stroke: am5.color("#fff") }),
       })
     );
+
+    
+
     yAxis.get("renderer").labels.template.setAll({
-      fill: am5.color("#fff"),
+      fill: am5.color("#fff"),  // y axis number to the color
       fontSize: 12,
-     
     });
 
     // for grid line to the white color
 
     yAxis.get("renderer").grid.template.setAll({
-        stroke : am5.color("#fff")
-    })
-
+      stroke: am5.color("#fff"),
+      strokeOpacity: 0.3, // it will transparent now(grid line)
+    });
 
     const series = chart.series.push(
       am5xy.LineSeries.new(root, {
@@ -93,14 +93,11 @@ const DbLineChart: React.FC = () => {
         categoryXField: "month",
         stroke: am5.color("#fff"), //white line
         tooltip: am5.Tooltip.new(root, {
-          labelText: "{categoryX}: {valueY}",
+          labelText: "{categoryX},sales: {valueY}",
         }),
       })
     );
 
-   
-
-    
     series.bullets.push(() => {
       return am5.Bullet.new(root, {
         sprite: am5.Circle.new(root, {
@@ -112,11 +109,9 @@ const DbLineChart: React.FC = () => {
       });
     });
 
-    
     xAxis.data.setAll(chartData);
     series.data.setAll(chartData);
 
-    
     series.appear(1000);
     chart.appear(1000, 100);
 

@@ -83,13 +83,13 @@ export const DashboardHeadData: DashboardTopType[] = [
 ];
 
 export const BarChartData: BarChartDataType[] = [
-  { day: "Mon", sales: 45 },
-  { day: "Tue", sales: 39 },
-  { day: "Wed", sales: 55 },
-  { day: "Thu", sales: 60 },
-  { day: "Fri", sales: 45 },
-  { day: "Sat", sales: 40 },
-  { day: "Sun", sales: 30 },
+  { day: "Mon", sales: 35 },
+  { day: "Tue", sales: 29 },
+  { day: "Wed", sales: 45 },
+  { day: "Thu", sales: 50 },
+  { day: "Fri", sales: 35 },
+  { day: "Sat", sales: 20 },
+  { day: "Sun", sales: 15 },
 ];
 
 export const LineChartData: LineChartDatatype[] = [
@@ -109,7 +109,8 @@ export const LineChartData: LineChartDatatype[] = [
 
 export const CompaniesData: CompaniesDataTypes[] = [
   {
-    companiesIcon: "",
+    companiesIcon:
+      "https://demos.creative-tim.com/material-dashboard-react/static/media/logo-xd.6e37886f94dba0c2967ece68a152e30c.svg",
     companies: "Material UI XD Version",
     members: [
       "https://demos.creative-tim.com/material-dashboard-react/static/media/team-1.0fd36e0ee93dcfacdef8.jpg",
@@ -121,7 +122,8 @@ export const CompaniesData: CompaniesDataTypes[] = [
     completion: 60,
   },
   {
-    companiesIcon: "",
+    companiesIcon:
+      "https://demos.creative-tim.com/material-dashboard-react/static/media/logo-atlassian.f2b0e8570a4b4ce768854ff3dad1a6e1.svg",
     companies: "Add Progress Track",
     members: [
       "https://demos.creative-tim.com/material-dashboard-react/static/media/team-1.0fd36e0ee93dcfacdef8.jpg",
@@ -131,7 +133,8 @@ export const CompaniesData: CompaniesDataTypes[] = [
     completion: 20,
   },
   {
-    companiesIcon: "",
+    companiesIcon:
+      "https://demos.creative-tim.com/material-dashboard-react/static/media/logo-slack.7c47c5aa474b5c4fb39fcf05ffb8e4e7.svg",
     companies: "Fix Platform Errors",
     members: [
       "	https://demos.creative-tim.com/material-dashboard-react/static/media/team-3.0ef0be95e6850814c79e.jpg",
@@ -143,18 +146,19 @@ export const CompaniesData: CompaniesDataTypes[] = [
     completion: 100,
   },
   {
-    companiesIcon: "",
+    companiesIcon:
+      "https://demos.creative-tim.com/material-dashboard-react/static/media/logo-spotify.e83cf56c9d99a1fdf59e8deb58bbe470.svg",
     companies: "Launch our Mobile App",
     members: [
       "https://demos.creative-tim.com/material-dashboard-react/static/media/team-2.13ae2ce3e12f4cfed420.jpg",
       "https://demos.creative-tim.com/material-dashboard-react/static/media/team-1.0fd36e0ee93dcfacdef8.jpg",
-
     ],
     budget: 20500,
     completion: 100,
   },
   {
-    companiesIcon: "",
+    companiesIcon:
+      "https://demos.creative-tim.com/material-dashboard-react/static/media/logo-jira.c19fd4e416babfbd0fdb0a794188c601.svg",
     companies: "Add the New Pricing Page",
     members: [
       "	https://demos.creative-tim.com/material-dashboard-react/static/media/team-3.0ef0be95e6850814c79e.jpg",
@@ -164,7 +168,8 @@ export const CompaniesData: CompaniesDataTypes[] = [
     completion: 40,
   },
   {
-    companiesIcon: "",
+    companiesIcon:
+      "https://demos.creative-tim.com/material-dashboard-react/static/media/logo-invision.a1062115730dcd10e1c4f4abe7b9ab33.svg",
     companies: "Redesign New Online Shop",
     members: [
       "https://demos.creative-tim.com/material-dashboard-react/static/media/team-4.85c82b6e60178804017f.jpg",

@@ -39,10 +39,10 @@ const CompaniesTable = () => {
       <Table>
         <TableHeader>
           <TableRow className="font-bold">
-            <TableHead className=" text-gray-400 ">Companies</TableHead>
-            <TableHead className="text-gray-400">Members</TableHead>
-            <TableHead className="text-gray-400">Budget</TableHead>
-            <TableHead className="text-right text-gray-400">
+            <TableHead className=" text-gray-400 w-fit px-1">Companies</TableHead>
+            <TableHead className="text-gray-400 px-1">Members</TableHead>
+            <TableHead className="text-gray-400 px-1">Budget</TableHead>
+            <TableHead className="text-right text-gray-400 px-1">
               Completion
             </TableHead>
           </TableRow>
@@ -50,26 +50,35 @@ const CompaniesTable = () => {
         <TableBody>
           {TableData.map((item, idx) => {
             return (
-              <TableRow key={idx} className="">
-                <TableCell className="font-medium py-5">
-                  {item.companies}
+              <TableRow key={idx} className="w-full">
+                <TableCell className="font-medium py-3 w-fit">
+                  <div className="flex items-center">
+                    <img
+                      src={item.companiesIcon}
+                      alt=""
+                      className="w-10 h-10"
+                    />
+                    <span>{item.companies}</span>
+                  </div>
                 </TableCell>
-                <TableCell
-                      
-                      className="flex -space-x-2 justify-center items-center"
-                    >
-                {item.members.map((icon, idx) => {
-                  return (
-                    
-                      <Avatar key={idx} className="w-5.5 h-5.5 cursor-pointer ">
+                <TableCell className="flex -space-x-2 justify-center items-center px-5">
+                  {item.members.map((icon, idx) => {
+                    return (
+                      <Avatar key={idx} className="w-5.5 h-5.5 cursor-pointer mt-2.5 ">
                         <AvatarImage src={icon} />
                         <AvatarFallback>CN</AvatarFallback>
                       </Avatar>
-                    
-                  );
-                })}
+                    );
+                  })}
                 </TableCell>
-                <TableCell className="font-bold text-gray-400 text-xs">{typeof item.budget === "number" ? <span className="">$</span> : ""}{item.budget} </TableCell>
+                <TableCell className="font-bold text-gray-400 text-xs">
+                  {typeof item.budget === "number" ? (
+                    <span className="">$</span>
+                  ) : (
+                    ""
+                  )}
+                  {item.budget}
+                </TableCell>
                 <TableCell className="text-right">
                   <Progress
                     value={item.completion}
