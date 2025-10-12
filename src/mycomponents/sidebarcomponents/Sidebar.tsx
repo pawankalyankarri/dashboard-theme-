@@ -22,7 +22,7 @@ const Sidebar = () => {
         <NavLink to='/' className={({isActive})=>cn("flex gap-3 items-center px-4 py-2.5  hover:bg-gray-400 hover:rounded-md",isActive ? "bg-blue-500 hover:bg-blue-500  w-full rounded-md" :"")}><FontAwesomeIcon icon={faUser}/> Profile</NavLink>
         <NavLink to='/' className={({isActive})=>cn("flex gap-3 items-center px-4 py-2.5  hover:bg-gray-400 hover:rounded-md",isActive ? "bg-blue-500 hover:bg-blue-500  w-full rounded-md" :"")}><FontAwesomeIcon icon={faRightFromBracket}/> Sign In</NavLink>
         <NavLink to='/' className={({isActive})=>cn("flex gap-3 items-center px-4 py-2.5  hover:bg-gray-400 hover:rounded-md",isActive ? "bg-blue-500 hover:bg-blue-500  w-full rounded-md" :"")}><FontAwesomeIcon icon={faClipboard}/> Sign Up</NavLink>
-        <li> <Button className="text-white bg-blue-500 uppercase w-full">Upgrade to pro</Button></li>
+        <li> <Button className="text-white bg-blue-500 hover:bg-blue-500 cursor-pointer uppercase w-full">Upgrade to pro</Button></li>
     </ul>
   </div>;
 };
