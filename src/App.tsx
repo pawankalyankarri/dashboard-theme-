@@ -10,11 +10,11 @@ function App() {
       <div className="h-screen fixed top-0 left-0">
         <Sidebar />
       </div>
-      <div  className=" relative col-span-4 p-5 col-start-2 w-full">
+      <div  className=" relative col-span-4 p-5 px-10 col-start-2 w-full">
         <div className="sticky top-5 z-10 w-full">
           <HeaderCom />
         </div >
-        <div className=" w-full">
+        <div className=" w-full ">
           <Outlet />
         </div>
       </div>
