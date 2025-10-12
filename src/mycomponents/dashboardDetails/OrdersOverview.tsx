@@ -9,16 +9,16 @@ import { Separator } from "@/components/ui/Separator";
 const OrdersOverview = () =>{
     const orders = OrdersData as OrdersDataTypes[]
     return(
-        <Card className="font-sans h-full">
+        <Card className="font-sans h-full flex gap-8">
             <CardHeader>
                 <span className="font-bold">Orders overview</span>
                 <span className="text-gray-400"> <FontAwesomeIcon icon={faArrowUp} className="text-green-500" /> <span className=" font-bold">24%</span> this month</span>
             </CardHeader>
-            <CardContent className="flex flex-col gap-6">
+            <CardContent className="flex flex-col gap-8">
                 {orders.map((item,idx)=>{
                     return(
                         <div className="relative " key={idx}>
-                            <div className="flex gap-3">
+                            <div className="flex gap-4">
                                 <div className="h-full flex items-center flex-col">
                                 <FontAwesomeIcon icon={item.icon} className={cn("p-2 text-white font-bold rounded-[50%]",item.color)}/>
                             </div>

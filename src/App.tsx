@@ -4,12 +4,22 @@ import Sidebar from "./mycomponents/sidebarcomponents/Sidebar";
 import HeaderCom from "./mycomponents/HeaderCom";
 
 function App() {
-  return <div className="grid grid-cols-5 w-full h-full gap-0 font-sans bg-gray-100">  {/*  grid-cols-[1.1fr_3.9fr] */}
-    <div className="h-screen fixed top-0 left-0"> <Sidebar/></div>
-    <div className="col-span-4 m-5 col-start-2">
-      <div className="fixed top-0 z-10"><HeaderCom/></div>
-       <Outlet/>  </div>
-  </div>;
+  return (
+    <div className="grid grid-cols-5 w-full h-full gap-5 font-sans bg-gray-100 box-border">
+      {/*  grid-cols-[1.1fr_3.9fr] */}
+      <div className="h-screen fixed top-0 left-0">
+        <Sidebar />
+      </div>
+      <div  className=" relative col-span-4 p-5 col-start-2 w-full">
+        <div className="sticky top-5 z-10 w-full">
+          <HeaderCom />
+        </div >
+        <div className=" w-full">
+          <Outlet />
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default App;
