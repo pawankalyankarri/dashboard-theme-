@@ -47,6 +47,14 @@ export interface OrdersDataTypes {
   color: string;
 }
 
+export interface ProjectsDataTypes {
+    name : string,
+    icon : string,
+    budget : number,
+    status : string,
+    completion : number
+  }
+
 export const DashboardHeadData: DashboardTopType[] = [
   {
     icon: faCouch,
@@ -212,3 +220,48 @@ export const OrdersData: OrdersDataTypes[] = [
     color: "bg-pink-600",
   },
 ];
+
+export const ProjectsData : ProjectsDataTypes[] = [
+  {
+    name : "asana",
+    icon : "https://demos.creative-tim.com/material-dashboard-react/static/media/logo-asana.d758f410d82760a61d1eabcb03409de6.svg",
+    budget : 2500,
+    status : "working",
+    completion : 60
+  },
+  {
+    name : "github",
+    icon :"https://demos.creative-tim.com/material-dashboard-react/static/media/github.067f80f311bc16bd0d1216457d09bdb3.svg",
+    budget : 5000,
+    status : "done",
+    completion : 100
+  },
+  {
+    name : "atlassian",
+    icon : "https://demos.creative-tim.com/material-dashboard-react/static/media/logo-atlassian.f2b0e8570a4b4ce768854ff3dad1a6e1.svg",
+    budget : 3400,
+    status : "canceled",
+    completion : 30
+  },
+  {
+    name : "spotify",
+    icon : "https://demos.creative-tim.com/material-dashboard-react/static/media/logo-spotify.e83cf56c9d99a1fdf59e8deb58bbe470.svg",
+    budget : 14000,
+    status : "working",
+    completion : 80
+  },
+  {
+    name : "slack",
+    icon : "https://demos.creative-tim.com/material-dashboard-react/static/media/logo-slack.7c47c5aa474b5c4fb39fcf05ffb8e4e7.svg",
+    budget : 1000,
+    status : "canceled",
+    completion : 0
+  },
+  {
+    name : "invesion",
+    icon : "https://demos.creative-tim.com/material-dashboard-react/static/media/logo-invision.a1062115730dcd10e1c4f4abe7b9ab33.svg",
+    budget : 2300,
+    status : "done",
+    completion : 100
+  },
+]
