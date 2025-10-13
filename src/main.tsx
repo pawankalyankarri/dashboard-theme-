@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Dashboard from './mycomponents/dashboardDetails/Dashboard.tsx'
 import TableCom from './mycomponents/table/TableCom.tsx'
 import BillingCom from './mycomponents/billing/BillingCom.tsx'
+import NotificationsPage from './mycomponents/notifications/NotificationsPage.tsx'
 
 const router = createBrowserRouter([
   { path : '/',
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path : "billing",
         element : <BillingCom/>
+      },
+      {
+        path : "notifications",
+        element : <NotificationsPage/>
       }
     ]
   }

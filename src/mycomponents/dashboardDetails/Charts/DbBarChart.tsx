@@ -40,7 +40,7 @@ const DbBarChart = () => {
       })
     );
     // setting color to the labels
-    xAxis.get("renderer").labels.template.setAll({fill : am5.color("#fff")})
+    xAxis.get("renderer").labels.template.setAll({fill : am5.color("#fff"),fontSize : 10})
     
     xAxis.get("renderer").grid.template.setAll({stroke : am5.color("#fff")})
    

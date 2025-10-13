@@ -9,9 +9,7 @@ import {
   faCartShopping,
   faKey,
 } from "@fortawesome/free-solid-svg-icons";
-import DbBarChart from "./dashboardDetails/Charts/DbBarChart";
-import DbLineChart from "./dashboardDetails/Charts/DbLineChart";
-import type React from "react";
+
 
 export interface DashboardTopType {
   icon: IconDefinition;
@@ -53,6 +51,12 @@ export interface ProjectsDataTypes {
     budget : number,
     status : string,
     completion : number
+  }
+
+export interface InvoicesDataTypes {
+    date : string,
+    numbers : string,
+    price : number
   }
 
 export const DashboardHeadData: DashboardTopType[] = [
@@ -265,3 +269,57 @@ export const ProjectsData : ProjectsDataTypes[] = [
     completion : 100
   },
 ]
+
+export const InvoicesData : InvoicesDataTypes[] = [
+  {
+    date : "March, 01, 2020",
+    numbers : "#MS-415646",
+    price : 180
+  },
+  {
+    date : "February, 10, 2021",
+    numbers : "#RV-126749",
+    price : 250
+  },
+  {
+    date : "April, 05, 2020",
+    numbers : "#QW-103578",
+    price : 120
+  },
+  {
+    date : "June, 25, 2019",
+    numbers : "#MS-415646",
+    price : 180
+  },
+  {
+    date : "March, 01, 2019",
+    numbers : "#AR-803481",
+    price : 300
+  },
+]
+
+export const shadcnColors : string[] = [
+  "bg-red-500",
+  "bg-orange-500",
+  "bg-amber-500",
+  "bg-yellow-500",
+  "bg-lime-500",
+  "bg-green-500",
+  "bg-emerald-500",
+  "bg-teal-500",
+  "bg-cyan-500",
+  "bg-sky-500",
+  "bg-blue-500",
+  "bg-indigo-500",
+  "bg-violet-500",
+  "bg-purple-500",
+  "bg-fuchsia-500",
+  "bg-pink-500",
+  "bg-rose-500",
+  "bg-gray-500",
+  "bg-slate-500",
+  "bg-zinc-500",
+  "bg-neutral-500",
+  "bg-stone-500",
+]
+

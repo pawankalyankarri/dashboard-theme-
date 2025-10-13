@@ -4,7 +4,6 @@ import { UserAPI } from "../Allapis";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -15,7 +14,7 @@ import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card } from "@/components/ui/card";
 
-interface UserDataType {
+export interface UserDataType {
   id: number;
   name: string;
   username: string;
