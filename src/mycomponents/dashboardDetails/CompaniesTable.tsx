@@ -1,7 +1,6 @@
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -12,7 +11,6 @@ import { CompaniesData } from "../AllData";
 import { Card } from "@/components/ui/card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faEllipsisV } from "@fortawesome/free-solid-svg-icons";
-import { Slider } from "@/components/ui/slider";
 import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";

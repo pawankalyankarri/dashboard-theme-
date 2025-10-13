@@ -3,6 +3,8 @@ import "./App.css";
 import Sidebar from "./mycomponents/sidebarcomponents/Sidebar";
 import HeaderCom from "./mycomponents/HeaderCom";
 import DashboardFooter from "./mycomponents/dashboardDetails/DashboardFooter";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGear } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   return (
@@ -15,13 +17,15 @@ function App() {
         <div className="sticky top-5 z-10 w-full">
           <HeaderCom />
         </div >
-        <div className=" w-full ">
+        <div className=" w-full relative ">
+          
+          <div className="fixed right-13 bottom-13 z-10"><span className="p-3 bg-cyan-50 rounded-full shadow-2xl"><FontAwesomeIcon icon={faGear} className="" /></span></div>
           <Outlet />
         </div>
         <div className="w-full"><DashboardFooter/></div>
 
       </div>
-    </div>
+    </div> 
   );
 }
 
