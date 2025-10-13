@@ -15,7 +15,6 @@ import { cn } from "@/lib/utils";
 import type { JSX } from "react";
 import CompaniesTable from "./CompaniesTable";
 import OrdersOverview from "./OrdersOverview";
-import DashboardFooter from "./DashboardFooter";
 
 
 export interface chartTypes{
@@ -82,7 +81,6 @@ const Dashboard = () => {
       <div className="grid grid-cols-3 gap-5 w-full"><div className="col-span-2 w-full"><CompaniesTable/></div>
       <div className="col-span-1"><OrdersOverview/></div>
       </div>
-      <div className="w-full"><DashboardFooter/></div>
     </div>
   );
 };

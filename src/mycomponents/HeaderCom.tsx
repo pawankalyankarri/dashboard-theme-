@@ -36,10 +36,10 @@ const HeaderCom = () => {
         <div className="w-full">
             <Input placeholder="Search Here" className="py-5 w-[80%] inset-shadow-xs inset-shadow-gray-50" type="text"/>
         </div>
-        <div className="text-gray-500 flex gap-3">
-            <span><FontAwesomeIcon icon={faCircleUser}/></span>
-            <span><FontAwesomeIcon icon={faGear}/></span>
-            <span><FontAwesomeIcon icon={faBell}/></span>
+        <div className="text-gray-500 flex gap-3 justify-end">
+            <span><FontAwesomeIcon icon={faCircleUser} className="cursor-pointer"/></span>
+            <span><FontAwesomeIcon icon={faGear} className="cursor-pointer"/></span>
+            <span><FontAwesomeIcon icon={faBell} className="cursor-pointer"/></span>
         </div>
       </div>
     </div>

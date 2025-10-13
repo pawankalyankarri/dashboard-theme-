@@ -1,15 +1,15 @@
 const DashboardFooter = () => {
   return (
-    <div className="text-gray-500 grid grid-cols-3   w-full  p-5">
-      <div className="w-full col-span-2 pl-5">
+    <div className="text-gray-500 grid grid-cols-2   w-full  p-5">
+      <div className="w-full  pl-5">
         <span>
           © 2025, made with by
-          <span className="font-bold text-gray-600">Creative Tim</span> for a
+          <span className="font-bold text-gray-600">&nbsp;Creative Tim</span> for a
           better web.
         </span>
       </div>
-      <div>
-        <ul className="flex gap-5 w-full">
+      <div className="w-full ">
+        <ul className="flex gap-5 w-full justify-end">
             <li className="cursor-pointer">Creative Tim</li>
             <li className="cursor-pointer">About Us</li>
             <li className="cursor-pointer">Blog</li>

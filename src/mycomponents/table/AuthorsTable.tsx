@@ -94,9 +94,11 @@ const AuthorsTable = () => {
   ];
   return (
     <div className="w-full h-full pt-10 font-sans">
+      {usersData.length === 0 ?  (<div className="text-center font-bold">Loading.... </div>) : 
+
       <Card className="w-full h-full relative px-3">
-        <div className="bg-blue-500 font-bold w-[96.6%] inset-shadow-xs inset-shadow-blue-800 shadow-xl text-white p-6 rounded-lg absolute -top-6 left-4"> Authors Table</div>
-        <Table className="mt-20 ">
+        <div className="bg-blue-500 font-bold w-[96.6%] inset-shadow-xs inset-shadow-blue-800 shadow-md text-white p-6 rounded-lg absolute -top-6 left-4"> Authors Table</div>
+        <Table className="mt-12 ">
           <TableHeader className=" font-bold">
             <TableRow>
               <TableHead className="text-gray-400">Author</TableHead>
@@ -110,10 +112,10 @@ const AuthorsTable = () => {
             {usersData.map((item, idx) => {
               return (
                 <TableRow key={idx} className="p-2 ">
-                  <TableCell className="font-medium flex gap-3 py-3 w-fit">
+                  <TableCell className="font-medium flex gap-3 p-2 py-4 w-fit">
                     <span>
                       <Avatar>
-                        <AvatarImage src={status[idx].icon} />
+                        <AvatarImage src={status[idx].icon} className="cursor-pointer"/>
                         <AvatarFallback>CN</AvatarFallback>
                       </Avatar>
                     </span>
@@ -139,13 +141,13 @@ const AuthorsTable = () => {
                     </Badge>
                   </TableCell>
                   <TableCell className="text-gray-600 text-sm">{item.phone}</TableCell>
-                  <TableCell className="text-gray-600 text-xs font-bold   ">Edit</TableCell>
+                  <TableCell className="text-gray-600 text-xs font-bold cursor-pointer   ">Edit</TableCell>
                 </TableRow>
               );
             })}
           </TableBody>
         </Table>
-      </Card>
+      </Card>}
     </div>
   );
 };

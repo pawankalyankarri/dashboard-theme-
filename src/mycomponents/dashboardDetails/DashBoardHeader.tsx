@@ -21,7 +21,7 @@ const DashBoardHeader = () => {
             <CardHeader className="relative">
               <CardTitle
                 className={cn(
-                  "p-3.5  shadow inset-shadow-sm  text-xl w-fit rounded-lg text-white absolute -top-12 left-5",
+                  "p-3  shadow inset-shadow-sm  text-xl w-fit rounded-lg text-white absolute -top-12 left-5",
                   item.color
                 )}
               >

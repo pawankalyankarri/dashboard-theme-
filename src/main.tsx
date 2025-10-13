@@ -4,7 +4,8 @@ import './index.css'
 import App from './App.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Dashboard from './mycomponents/dashboardDetails/Dashboard.tsx'
-import AuthorsTable from './mycomponents/table/AuthorsTable.tsx'
+import TableCom from './mycomponents/table/TableCom.tsx'
+import BillingCom from './mycomponents/billing/BillingCom.tsx'
 
 const router = createBrowserRouter([
   { path : '/',
@@ -22,7 +23,11 @@ const router = createBrowserRouter([
       },
       {
         path : 'table',
-        element : <AuthorsTable/>,
+        element : <TableCom/>,
+      },
+      {
+        path : "billing",
+        element : <BillingCom/>
       }
     ]
   }
