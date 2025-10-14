@@ -16,7 +16,7 @@ const ProfilePage = () => {
         <img src={mountain} alt="" className="w-full h-[300px] rounded-lg" />
       </div>
       <div className="w-full h-full flex justify-center">
-        <Card className="absolute top-50 w-[95%]">
+        <Card className="absolute top-50 w-[95%] shadow-md">
           <CardHeader className=" w-full grid grid-cols-2">
             <div className="w-full flex gap-5">
               <img
