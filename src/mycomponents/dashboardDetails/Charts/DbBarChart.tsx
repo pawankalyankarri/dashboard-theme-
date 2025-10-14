@@ -1,14 +1,16 @@
-import React, { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
-import { BarChartData } from "@/mycomponents/AllData";
-import type { BarChartDataType } from "@/mycomponents/AllData";
+import type { BarChartDataType } from "@/mycomponents/dashboardDetails/Dashboard";
 
-const DbBarChart = () => {
+interface DbChartDataPropType{
+  data : BarChartDataType[]
+}
+
+const DbBarChart = ({data} : DbChartDataPropType) => {
   const chartRef = useRef<HTMLDivElement>(null);
-  const data = BarChartData as BarChartDataType[];
-
+  console.log('data',data)
   useLayoutEffect(() => {
     if (!chartRef.current) return;
 
@@ -102,7 +104,7 @@ const DbBarChart = () => {
     };
   }, [data]);
 
-  return <div ref={chartRef} className="w-full h-full" />;
+  return <div ref={chartRef} className="w-full h-full py-3" />;
 };
 
 export default DbBarChart;

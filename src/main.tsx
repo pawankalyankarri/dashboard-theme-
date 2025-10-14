@@ -7,6 +7,9 @@ import Dashboard from './mycomponents/dashboardDetails/Dashboard.tsx'
 import TableCom from './mycomponents/table/TableCom.tsx'
 import BillingCom from './mycomponents/billing/BillingCom.tsx'
 import NotificationsPage from './mycomponents/notifications/NotificationsPage.tsx'
+import ProfilePage from './mycomponents/profile/ProfilePage.tsx'
+import SignInPage from './mycomponents/SignInPage.tsx'
+import SignUpPage from './mycomponents/SignUpPage.tsx'
 
 const router = createBrowserRouter([
   { path : '/',
@@ -33,6 +36,18 @@ const router = createBrowserRouter([
       {
         path : "notifications",
         element : <NotificationsPage/>
+      },
+      {
+        path : "profile",
+        element : <ProfilePage/>
+      },
+      {
+        path : "signin",
+        element : <SignInPage/>
+      },
+      {
+        path : "signup",
+        element : <SignUpPage/>
       }
     ]
   }

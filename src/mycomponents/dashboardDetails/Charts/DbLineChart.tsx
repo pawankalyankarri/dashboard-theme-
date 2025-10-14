@@ -2,12 +2,18 @@ import React, { useLayoutEffect, useRef } from "react";
 import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
-import type { LineChartDatatype } from "@/mycomponents/AllData";
-import { LineChartData } from "@/mycomponents/AllData";
-const DbLineChart: React.FC = () => {
-  const chartRef = useRef<HTMLDivElement>(null);
-  const chartData = LineChartData as LineChartDatatype[];
+import type { LineDatatype } from "../Dashboard";
+// import type { LineChartDatatype } from "@/mycomponents/AllData";
+// import { LineChartData } from "@/mycomponents/AllData";
 
+interface LineDataTypeProp {
+  data : LineDatatype[]
+}
+
+const DbLineChart = ({data} : LineDataTypeProp) => {
+  const chartRef = useRef<HTMLDivElement>(null);
+  // const chartData = LineChartData as LineChartDatatype[];
+  console.log('linedata',data)
   useLayoutEffect(() => {
     if (!chartRef.current) return;
 
@@ -42,7 +48,7 @@ const DbLineChart: React.FC = () => {
     // X Axis (CategoryAxis)
     const xAxis = chart.xAxes.push(
       am5xy.CategoryAxis.new(root, {
-        categoryField: "month",
+        categoryField: "Month",
         renderer: am5xy.AxisRendererX.new(root, {
           minGridDistance: 20,
         }),
@@ -89,8 +95,8 @@ const DbLineChart: React.FC = () => {
         name: "Sales",
         xAxis,
         yAxis,
-        valueYField: "sales",
-        categoryXField: "month",
+        valueYField: "Sales",
+        categoryXField: "Month",
         stroke: am5.color("#fff"), //white line
         tooltip: am5.Tooltip.new(root, {
           labelText: "{categoryX},sales: {valueY}",
@@ -109,8 +115,8 @@ const DbLineChart: React.FC = () => {
       });
     });
 
-    xAxis.data.setAll(chartData);
-    series.data.setAll(chartData);
+    xAxis.data.setAll(data);
+    series.data.setAll(data);
 
     series.appear(1000);
     chart.appear(1000, 100);
@@ -118,9 +124,9 @@ const DbLineChart: React.FC = () => {
     return () => {
       root.dispose();
     };
-  }, [chartData]);
+  }, [data]);
 
-  return <div ref={chartRef} className="w-full h-full" />;
+  return <div ref={chartRef} className="w-full h-full py-3" />;
 };
 
 export default DbLineChart;
