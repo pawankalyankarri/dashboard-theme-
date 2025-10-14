@@ -48,7 +48,7 @@ const AuthorsTable = () => {
   useEffect(() => {
     axios
       .get(UserAPI)
-      .then((res) => setUsersData(res.data))
+      .then((res) => setUsersData(res.data["employess"]))
       .catch((err) => console.log(err));
   }, []);
   // const status : StatusType[] = [
