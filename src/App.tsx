@@ -19,7 +19,7 @@ function App() {
         </div >
         <div className=" w-full relative ">
           
-          <div className="fixed right-13 bottom-13 z-10"><span className="p-3 bg-cyan-50 rounded-full shadow-2xl"><FontAwesomeIcon icon={faGear} className="" /></span></div>
+          <div className="fixed right-10 bottom-10 z-10"><span className="p-4 bg-cyan-50 rounded-full shadow-2xl cursor-pointer"><FontAwesomeIcon icon={faGear} className="" /></span></div>
           <Outlet />
         </div>
         <div className="w-full"><DashboardFooter/></div>

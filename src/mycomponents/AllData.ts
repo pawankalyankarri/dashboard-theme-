@@ -20,15 +20,15 @@ export interface DashboardTopType {
   color: string;
 }
 
-export interface BarChartDataType {
-  day: string;
-  sales: number;
-}
+// export interface BarChartDataType {
+//   day: string;
+//   sales: number;
+// }
 
-export interface LineChartDatatype {
-  month: string;
-  sales: number;
-}
+// export interface LineChartDatatype {
+//   month: string;
+//   sales: number;
+// }
 
 export interface CompaniesDataTypes {
   companiesIcon: string;
@@ -58,6 +58,15 @@ export interface InvoicesDataTypes {
     numbers : string,
     price : number
   }
+
+export interface ProfilePageDataTypes {
+  profileImg : string,
+  conversation : {
+    icon : string,
+    name : string,
+    msg : string
+  }[]
+}
 
 export const DashboardHeadData: DashboardTopType[] = [
   {
@@ -94,30 +103,30 @@ export const DashboardHeadData: DashboardTopType[] = [
   },
 ];
 
-export const BarChartData: BarChartDataType[] = [
-  { day: "Mon", sales: 35 },
-  { day: "Tue", sales: 29 },
-  { day: "Wed", sales: 45 },
-  { day: "Thu", sales: 50 },
-  { day: "Fri", sales: 35 },
-  { day: "Sat", sales: 20 },
-  { day: "Sun", sales: 15 },
-];
+// export const BarChartData: BarChartDataType[] = [
+//   { day: "Mon", sales: 35 },
+//   { day: "Tue", sales: 29 },
+//   { day: "Wed", sales: 45 },
+//   { day: "Thu", sales: 50 },
+//   { day: "Fri", sales: 35 },
+//   { day: "Sat", sales: 20 },
+//   { day: "Sun", sales: 15 },
+// ];
 
-export const LineChartData: LineChartDatatype[] = [
-  { month: "Jan", sales: 120 },
-  { month: "Feb", sales: 240 },
-  { month: "Mar", sales: 310 },
-  { month: "Apr", sales: 180 },
-  { month: "May", sales: 270 },
-  { month: "Jun", sales: 350 },
-  { month: "Jul", sales: 400 },
-  { month: "Aug", sales: 260 },
-  { month: "Sep", sales: 320 },
-  { month: "Oct", sales: 290 },
-  { month: "Nov", sales: 370 },
-  { month: "Dec", sales: 200 },
-];
+// export const LineChartData: LineChartDatatype[] = [
+//   { month: "Jan", sales: 120 },
+//   { month: "Feb", sales: 240 },
+//   { month: "Mar", sales: 310 },
+//   { month: "Apr", sales: 180 },
+//   { month: "May", sales: 270 },
+//   { month: "Jun", sales: 350 },
+//   { month: "Jul", sales: 400 },
+//   { month: "Aug", sales: 260 },
+//   { month: "Sep", sales: 320 },
+//   { month: "Oct", sales: 290 },
+//   { month: "Nov", sales: 370 },
+//   { month: "Dec", sales: 200 },
+// ];
 
 export const CompaniesData: CompaniesDataTypes[] = [
   {
@@ -322,4 +331,36 @@ export const shadcnColors : string[] = [
   "bg-neutral-500",
   "bg-stone-500",
 ]
+
+
+export const ProfilePageData : ProfilePageDataTypes = {
+  profileImg : "https://demos.creative-tim.com/material-dashboard-react/static/media/bruce-mars.8a606c4a6dab54c9ceff.jpg",
+  conversation :[
+    {
+      icon :"https://demos.creative-tim.com/material-dashboard-react/static/media/kal-visuals-square.3210e28a48ff572ae88b.jpg",
+      name : "Sophie B.",
+      msg : "Hi! I need more information.."
+    },
+    {
+      icon :"https://demos.creative-tim.com/material-dashboard-react/static/media/marie.c28f32663b6432b46f78.jpg",
+      name : "Anne Marie",
+      msg : "Awesome work, can you.."
+    },
+    {
+      icon :"https://demos.creative-tim.com/material-dashboard-react/static/media/team-1.0fd36e0ee93dcfacdef8.jpg",
+      name : "Ivanna",
+      msg : "About files I can.."
+    },
+    {
+      icon :"https://demos.creative-tim.com/material-dashboard-react/static/media/team-4.85c82b6e60178804017f.jpg ",
+      name : "Peterson",
+      msg : "Have a great afternoon.."
+    },
+    {
+      icon : "https://demos.creative-tim.com/material-dashboard-react/static/media/team-1.0fd36e0ee93dcfacdef8.jpg",
+      name : "Nick Daniel",
+      msg : "Hi! I need more information.."
+    },
+]
+}
 

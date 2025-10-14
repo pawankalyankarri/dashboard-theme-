@@ -29,6 +29,8 @@ export interface UserDataType {
       lng: number;
     };
   };
+  icon : string,
+  status : string,
   phone: string;
   website: string;
   company: {
@@ -49,48 +51,48 @@ const AuthorsTable = () => {
       .then((res) => setUsersData(res.data))
       .catch((err) => console.log(err));
   }, []);
-  const status : StatusType[] = [
-    {
-      icon: "https://demos.creative-tim.com/material-dashboard-react/static/media/team-1.0fd36e0ee93dcfacdef8.jpg",
-      status: "online",
-    },
-    {
-      icon: "https://demos.creative-tim.com/material-dashboard-react/static/media/team-2.13ae2ce3e12f4cfed420.jpg",
-      status: "offline",
-    },
-    {
-      icon: "	https://demos.creative-tim.com/material-dashboard-react/static/media/team-3.0ef0be95e6850814c79e.jpg",
-      status: "online",
-    },
-    {
-      icon: "https://demos.creative-tim.com/material-dashboard-react/static/media/team-4.85c82b6e60178804017f.jpg",
-      status: "online",
-    },
-    {
-      icon: "https://demos.creative-tim.com/material-dashboard-react/static/media/team-4.85c82b6e60178804017f.jpg",
-      status: "offline",
-    },
-    {
-      icon: "https://demos.creative-tim.com/material-dashboard-react/static/media/team-1.0fd36e0ee93dcfacdef8.jpg",
-      status: "offline",
-    },
-    {
-      icon: "https://demos.creative-tim.com/material-dashboard-react/static/media/team-1.0fd36e0ee93dcfacdef8.jpg",
-      status: "online",
-    },
-    {
-      icon: "https://demos.creative-tim.com/material-dashboard-react/static/media/team-2.13ae2ce3e12f4cfed420.jpg",
-      status: "offline",
-    },
-    {
-      icon: "https://demos.creative-tim.com/material-dashboard-react/static/media/team-2.13ae2ce3e12f4cfed420.jpg",
-      status: "online",
-    },
-    {
-      icon: "https://demos.creative-tim.com/material-dashboard-react/static/media/team-4.85c82b6e60178804017f.jpg",
-      status: "online",
-    },
-  ];
+  // const status : StatusType[] = [
+  //   {
+  //     icon: "https://demos.creative-tim.com/material-dashboard-react/static/media/team-1.0fd36e0ee93dcfacdef8.jpg",
+  //     status: "online",
+  //   },
+  //   {
+  //     icon: "https://demos.creative-tim.com/material-dashboard-react/static/media/team-2.13ae2ce3e12f4cfed420.jpg",
+  //     status: "offline",
+  //   },
+  //   {
+  //     icon: "	https://demos.creative-tim.com/material-dashboard-react/static/media/team-3.0ef0be95e6850814c79e.jpg",
+  //     status: "online",
+  //   },
+  //   {
+  //     icon: "https://demos.creative-tim.com/material-dashboard-react/static/media/team-4.85c82b6e60178804017f.jpg",
+  //     status: "online",
+  //   },
+  //   {
+  //     icon: "https://demos.creative-tim.com/material-dashboard-react/static/media/team-4.85c82b6e60178804017f.jpg",
+  //     status: "offline",
+  //   },
+  //   {
+  //     icon: "https://demos.creative-tim.com/material-dashboard-react/static/media/team-1.0fd36e0ee93dcfacdef8.jpg",
+  //     status: "offline",
+  //   },
+  //   {
+  //     icon: "https://demos.creative-tim.com/material-dashboard-react/static/media/team-1.0fd36e0ee93dcfacdef8.jpg",
+  //     status: "online",
+  //   },
+  //   {
+  //     icon: "https://demos.creative-tim.com/material-dashboard-react/static/media/team-2.13ae2ce3e12f4cfed420.jpg",
+  //     status: "offline",
+  //   },
+  //   {
+  //     icon: "https://demos.creative-tim.com/material-dashboard-react/static/media/team-2.13ae2ce3e12f4cfed420.jpg",
+  //     status: "online",
+  //   },
+  //   {
+  //     icon: "https://demos.creative-tim.com/material-dashboard-react/static/media/team-4.85c82b6e60178804017f.jpg",
+  //     status: "online",
+  //   },
+  // ];
   return (
     <div className="w-full h-full pt-10 font-sans">
       {usersData.length === 0 ?  (<div className="text-center font-bold">Loading.... </div>) : 
@@ -114,7 +116,7 @@ const AuthorsTable = () => {
                   <TableCell className="font-medium flex gap-3 p-2 py-4 w-fit">
                     <span>
                       <Avatar>
-                        <AvatarImage src={status[idx].icon} className="cursor-pointer"/>
+                        <AvatarImage src={item.icon} className="cursor-pointer"/>
                         <AvatarFallback>CN</AvatarFallback>
                       </Avatar>
                     </span>
@@ -131,16 +133,16 @@ const AuthorsTable = () => {
                     <Badge
                       className={cn(
                         "uppercase",
-                        status[idx].status === "online"
+                        item.status === "online"
                           ? "bg-green-600"
                           : "bg-black"
                       )}
                     >
-                      {status[idx].status}
+                      {item.status}
                     </Badge>
                   </TableCell>
                   <TableCell className="text-gray-600 text-sm">{item.phone}</TableCell>
-                  <TableCell className="text-gray-600 text-xs font-bold cursor-pointer   ">Edit</TableCell>
+                  <TableCell className="text-gray-600 text-xs font-bold cursor-pointer ">Edit</TableCell>
                 </TableRow>
               );
             })}

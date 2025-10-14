@@ -12,47 +12,74 @@ import {  faClock } from "@fortawesome/free-solid-svg-icons";
 import { Separator } from "@/components/ui/Separator";
 import DbLineChart from "./Charts/DbLineChart";
 import { cn } from "@/lib/utils";
-import type { JSX } from "react";
+import { useEffect, useState, type JSX } from "react";
 import CompaniesTable from "./CompaniesTable";
 import OrdersOverview from "./OrdersOverview";
+import type React from "react";
+import axios from "axios";
+import { DaySalesAPI, MonthSalesAPI } from "../Allapis";
+
+export interface BarChartDataType  {
+    day: string,
+    sales: number
+  }
+
+// export interface chartTypes{
+//   chart : React.ComponentType<{BarChartData : BarChartDataType[] }>,
+//   bg : string,
+//   title : string,
+//   body : string,
+//   footer : string
+// }
+
+export interface LineDatatype {
+    Month: string,
+    Sales: number
+  }
 
 
-export interface chartTypes{
-  chart : JSX.Element,
-  bg : string,
-  title : string,
-  body : string,
-  footer : string
-}
 
 const Dashboard = () => {
- const chartsComponents : chartTypes[] = [
-    {
-      chart: <DbBarChart/> ,
-      bg: "bg-blue-500",
-      title: "Website Views",
-      body: "Last Campaign Performance",
-      footer : "campaign sent 2 days ago"
-    },
-    {
-      chart: <DbLineChart/>,
-      bg: "bg-green-500",
-      title: "Daily sales",
-      body: "(+15%) increase in today sales",
-      footer : "updated 4 min ago"
-    },
-    {
-      chart: <DbLineChart/>,
-      bg: "bg-black",
-      title: "Completed Tasks",
-      body: "Last Campaign Performance",
-      footer : "just updated "
-    },
-  ];  return (
+  const [barData,setBarData] = useState<BarChartDataType[]>([])
+  const [lineData,setLineData] = useState<LineDatatype[]>([])
+//  const chartsComponents : chartTypes[] = [
+//     {
+//       chart: DbBarChart,
+//       bg: "bg-blue-500",
+//       title: "Website Views",
+//       body: "Last Campaign Performance",
+//       footer : "campaign sent 2 days ago"
+//     },
+//     {
+//       chart: DbLineChart,
+//       bg: "bg-green-500",
+//       title: "Daily sales",
+//       body: "(+15%) increase in today sales",
+//       footer : "updated 4 min ago"
+//     },
+//     {
+//       chart: DbLineChart,
+//       bg: "bg-black",
+//       title: "Completed Tasks",
+//       body: "Last Campaign Performance",
+//       footer : "just updated "
+//     },
+//   ];  
+
+  useEffect(()=>{
+    axios.get(DaySalesAPI).then(res=>setBarData(res.data)).catch(err=>console.log(err))
+    axios.get(MonthSalesAPI).then(res=>setLineData(res.data)).catch(err=>console.log(err))
+  },[])
+
+  
+
+  return (
     <div className="flex items-center flex-col m-0">
       <DashBoardHeader />
       <div className="grid grid-cols-3 h-full w-full py-5 gap-5">
-        {chartsComponents.map((item, idx) => {
+       <> {/* {chartsComponents.map((item, idx) => {
+          const ChartType = item.chart
+          console.log('chartpye',ChartType)
           return (
             <Card className="relative h-full inset-shadow-sm" key={idx}>
               <CardHeader className=" w-full h-full absolute -top-10">
@@ -62,7 +89,7 @@ const Dashboard = () => {
                     item.bg
                   )}
                 >
-                  {item.chart}
+                  <ChartType data = {barData}/>
                 </CardTitle>
               </CardHeader>
               <CardContent className="flex flex-col pt-36">
@@ -76,7 +103,82 @@ const Dashboard = () => {
               </CardFooter>
             </Card>
           );
-        })}
+        })} */}</>
+
+             {/* DbBarChart */}
+          <Card className="relative h-full inset-shadow-sm">
+              <CardHeader className=" w-full h-full absolute -top-10">
+                <CardTitle
+                  className={cn(
+                    "w-full h-[200px]  text-white rounded-lg","bg-blue-500"
+                    
+                  )}
+                >
+                  <DbBarChart data={barData}/>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-col pt-36">
+                <span className="font-bold capitalize text-gray-800">website views</span>
+                <span className="text-gray-500 text-sm">Last Campaign Performance</span>
+              </CardContent>
+              <Separator className="w-[80%] m-auto" />
+              <CardFooter className="text-gray-500 text-sm">
+                <FontAwesomeIcon icon={faClock} className="px-2 " />
+                campaign sent 2 days ago
+              </CardFooter>
+            </Card>
+
+            {/* DbLineChart */}
+
+          <Card className="relative h-full inset-shadow-sm">
+              <CardHeader className=" w-full h-full absolute -top-10">
+                <CardTitle
+                  className={cn(
+                    "w-full h-[200px]  text-white rounded-lg","bg-green-500"
+                    
+                  )}
+                >
+                  <DbLineChart data={lineData}/>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-col pt-36">
+                <span className="font-bold capitalize text-gray-800">daily sales</span>
+                <span className="text-gray-500 text-sm">(+15%) increase in today sales.</span>
+              </CardContent>
+              <Separator className="w-[80%] m-auto" />
+              <CardFooter className="text-gray-500 text-sm">
+                <FontAwesomeIcon icon={faClock} className="px-2" />
+                updated 4 min ago
+              </CardFooter>
+            </Card>
+
+            {/* DbLineChart */}
+
+          <Card className="relative h-full inset-shadow-sm">
+              <CardHeader className=" w-full h-full absolute -top-10">
+                <CardTitle
+                  className={cn(
+                    "w-full h-[200px]  text-white rounded-lg","bg-black"
+                    
+                  )}
+                >
+                  <DbLineChart data={lineData}/>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-col pt-36">
+                <span className="font-bold capitalize text-gray-800">completed tasks</span>
+                <span className="text-gray-500 text-sm">Last Campaign Performance</span>
+              </CardContent>
+              <Separator className="w-[80%] m-auto" />
+              <CardFooter className="text-gray-500 text-sm">
+                <FontAwesomeIcon icon={faClock} className="px-2" />
+                just updated
+              </CardFooter>
+            </Card>
+
+
+        
+        
       </div>
       <div className="grid grid-cols-3 gap-5 w-full"><div className="col-span-2 w-full"><CompaniesTable/></div>
       <div className="col-span-1"><OrdersOverview/></div>
