@@ -9,7 +9,7 @@ import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 const BillingInformation = () => {
     const [usersData,setUsersData] = useState<UserDataType[]>([])
     useEffect(()=>{
-        axios.get(UserAPI).then(res=>setUsersData(res.data)).catch(err=>console.log(err))
+        axios.get(UserAPI).then(res=>setUsersData(res.data["employees"])).catch(err=>console.log(err))
     },[usersData])
     return(
         <div>
