@@ -12,10 +12,9 @@ import {  faClock } from "@fortawesome/free-solid-svg-icons";
 import { Separator } from "@/components/ui/Separator";
 import DbLineChart from "./Charts/DbLineChart";
 import { cn } from "@/lib/utils";
-import { useEffect, useState, type JSX } from "react";
+import { useEffect, useState} from "react";
 import CompaniesTable from "./CompaniesTable";
 import OrdersOverview from "./OrdersOverview";
-import type React from "react";
 import axios from "axios";
 import { DaySalesAPI, MonthSalesAPI } from "../Allapis";
 
@@ -110,7 +109,7 @@ const Dashboard = () => {
               <CardHeader className=" w-full h-full absolute -top-10">
                 <CardTitle
                   className={cn(
-                    "w-full h-[200px]  text-white rounded-lg","bg-blue-500"
+                    "w-full h-[200px] py-5  text-white rounded-lg","bg-blue-500"
                     
                   )}
                 >
@@ -134,7 +133,7 @@ const Dashboard = () => {
               <CardHeader className=" w-full h-full absolute -top-10">
                 <CardTitle
                   className={cn(
-                    "w-full h-[200px]  text-white rounded-lg","bg-green-500"
+                    "w-full h-[200px] py-2  text-white rounded-lg","bg-green-600"
                     
                   )}
                 >
@@ -158,7 +157,7 @@ const Dashboard = () => {
               <CardHeader className=" w-full h-full absolute -top-10">
                 <CardTitle
                   className={cn(
-                    "w-full h-[200px]  text-white rounded-lg","bg-black"
+                    "w-full h-[200px] py-2  text-white rounded-lg","bg-black"
                     
                   )}
                 >

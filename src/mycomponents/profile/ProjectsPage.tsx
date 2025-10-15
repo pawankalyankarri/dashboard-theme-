@@ -25,15 +25,15 @@ const ProjectsPage = () => {
                 {item.name}
               </div>
               <div className="text-sm">{item.description}</div>
-              <div className="grid grid-cols-2 w-full">
-                <Button className="text-blue-500 bg-white hover:bg-white border-1 border-blue-500 uppercase text-xs font-bold">
+              <div className="grid grid-cols-2 place-items-center w-full gap-1">
+                <Button className="text-blue-500 bg-white hover:bg-white border-1 border-blue-500 uppercase text-xs font-bold cursor-pointer">
                   View Project
                 </Button>
                 <div className="w-full flex -space-x-3 " >
                   {item.client.map((i, idx) => {
                     return (
                       <Avatar key={idx} className="w-6 h-6">
-                        <AvatarImage src={i} className="w-full h-full" />
+                        <AvatarImage src={i} className="w-full h-full cursor-pointer" />
                         <AvatarFallback>CN</AvatarFallback>
                       </Avatar>
                     );

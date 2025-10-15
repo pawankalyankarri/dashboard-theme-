@@ -13,14 +13,14 @@ function App() {
       <div className="h-screen fixed top-0 left-0">
         <Sidebar />
       </div>
-      <div  className=" relative col-span-4 p-5 px-6 col-start-2 w-full">
+      <div  className=" relative col-span-4 p-5 px-6 col-start-2 w-full h-full">
         <div className="sticky top-5 z-10 w-full">
           <HeaderCom />
         </div >
-        <div className=" w-full relative ">
+        <div className=" w-full relative">
           
           <div className="fixed right-10 bottom-10 z-10"><span className="p-4 bg-cyan-50 rounded-full shadow-2xl cursor-pointer"><FontAwesomeIcon icon={faGear} className="" /></span></div>
-          <Outlet />
+          <div className="w-full h-full"><Outlet /></div>
         </div>
         <div className="w-full"><DashboardFooter/></div>
 

@@ -22,8 +22,8 @@ const BillingInformation = () => {
                         return(
                             <CardContent key={item.id} className="bg-gray-50 w-[90%] m-auto rounded-md h-full p-8">
                                 <div className="w-full h-full flex flex-col gap-5">
-                                    <div className="w-full h-full grid grid-cols-3  ">
-                                        <span className="font-bold text-sm">{item.name}</span>
+                                    <div className="w-full h-full grid grid-cols-4  ">
+                                        <span className="font-bold text-sm col-span-2">{item.name}</span>
                                         <span className="text-red-500 uppercase text-center text-xs font-bold cursor-pointer"><FontAwesomeIcon icon={faTrash} /> Delete </span>
                                         <span className="text-gray-700 uppercase text-center text-xs font-bold cursor-pointer"><FontAwesomeIcon icon={faPen} /> Edit</span>
                                     </div>

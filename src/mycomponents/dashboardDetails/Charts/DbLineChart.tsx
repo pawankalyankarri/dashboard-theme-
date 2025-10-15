@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
@@ -13,7 +13,7 @@ interface LineDataTypeProp {
 const DbLineChart = ({data} : LineDataTypeProp) => {
   const chartRef = useRef<HTMLDivElement>(null);
   // const chartData = LineChartData as LineChartDatatype[];
-  console.log('linedata',data)
+  // console.log('linedata',data)
   useLayoutEffect(() => {
     if (!chartRef.current) return;
 
@@ -56,7 +56,7 @@ const DbLineChart = ({data} : LineDataTypeProp) => {
     );
     // for grid line to the white color
     xAxis.get("renderer").grid.template.setAll({
-      stroke: am5.color("#808080"),
+      stroke: am5.color("#fff"),
       strokeOpacity: 0,
     });
 
@@ -65,6 +65,7 @@ const DbLineChart = ({data} : LineDataTypeProp) => {
       fill: am5.color("#fff"),
       fontSize: 12,
       fontWeight: "500",
+      rotation : 320
     });
 
     const yAxis = chart.yAxes.push(
@@ -72,15 +73,15 @@ const DbLineChart = ({data} : LineDataTypeProp) => {
         min: 0,
         max: 800,
         strictMinMax: true,
-        renderer: am5xy.AxisRendererY.new(root, { stroke: am5.color("#fff") }),
+        renderer: am5xy.AxisRendererY.new(root, { stroke: am5.color("#fff"),minGridDistance : 50 }),
       })
     );
-
-    
 
     yAxis.get("renderer").labels.template.setAll({
       fill: am5.color("#fff"),  // y axis number to the color
       fontSize: 12,
+    
+      
     });
 
     // for grid line to the white color
@@ -126,7 +127,7 @@ const DbLineChart = ({data} : LineDataTypeProp) => {
     };
   }, [data]);
 
-  return <div ref={chartRef} className="w-full h-full py-3" />;
+  return <div ref={chartRef} className="w-full h-full" />;
 };
 
 export default DbLineChart;

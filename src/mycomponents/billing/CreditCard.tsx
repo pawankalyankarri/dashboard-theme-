@@ -1,6 +1,7 @@
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { faWifi } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { masterCard } from "../AllData";
 
 const CreditCard = () => {
     return (
@@ -21,7 +22,7 @@ const CreditCard = () => {
                         <span className="text-gray-400 text-sm">Expires</span>
                         <span className="text-lg">11/22</span>
                     </div>
-                    <div><span>-</span></div>
+                    <div className="flex justify-center"><span><img src={masterCard} alt="" className="w-[30px]" /></span></div>
                 </CardFooter>
             </Card>
         </div>

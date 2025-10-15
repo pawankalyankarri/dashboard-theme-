@@ -9,7 +9,13 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Input } from "@/components/ui/input";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBell, faCircleUser, faGear } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBell,
+  faCircleUser,
+  faGear,
+  faHouse,
+} from "@fortawesome/free-solid-svg-icons";
+import { localhost } from "./AllData";
 const HeaderCom = () => {
   const location = useLocation();
   //   console.log(location.pathname);
@@ -20,26 +26,44 @@ const HeaderCom = () => {
       <div className="w-full h-full">
         <Breadcrumb>
           <BreadcrumbList>
+            <BreadcrumbLink href={`${localhost}/dashboard`}>
+              <FontAwesomeIcon icon={faHouse} /> /
+            </BreadcrumbLink>
             {paths.map((item, idx) => {
               return (
                 <BreadcrumbItem key={idx}>
-                  <BreadcrumbLink href={`http://localhost:5173/${item}`} className="capitalize">
+                  <BreadcrumbLink
+                    href={`${localhost}/${item}`}
+                    className="capitalize"
+                  >
                     {item}
                   </BreadcrumbLink>
                 </BreadcrumbItem>
               );
             })}
           </BreadcrumbList>
+          <span  className="capitalize font-bold text-sm py-2 text-gray-700">{paths[paths.length-1]}</span>
         </Breadcrumb>
       </div>
-      <div className="w-full grid grid-cols-2 gap-5 ">
-        <div className="w-full">
-            <Input placeholder="Search Here" className="py-5 w-[80%] inset-shadow-xs inset-shadow-gray-50" type="text"/>
+      <div className="w-full grid grid-cols-2 place-items-end gap-5 ">
+        <div className="w-full flex justify-end">
+          <Input
+            placeholder="Search Here"
+            className="py-5 w-[80%] inset-shadow-xs inset-shadow-gray-50 focus-visible:ring-1 focus-visible:ring-blue-500 focus-visible:ring-offset-0 focus:outline-none"
+            type="text"
+
+          />
         </div>
         <div className="text-gray-500 flex gap-3 justify-end">
-            <span><FontAwesomeIcon icon={faCircleUser} className="cursor-pointer"/></span>
-            <span><FontAwesomeIcon icon={faGear} className="cursor-pointer"/></span>
-            <span><FontAwesomeIcon icon={faBell} className="cursor-pointer"/></span>
+          <span>
+            <FontAwesomeIcon icon={faCircleUser} className="cursor-pointer" />
+          </span>
+          <span>
+            <FontAwesomeIcon icon={faGear} className="cursor-pointer" />
+          </span>
+          <span>
+            <FontAwesomeIcon icon={faBell} className="cursor-pointer" />
+          </span>
         </div>
       </div>
     </div>
