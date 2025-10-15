@@ -10,15 +10,15 @@ const PlatformSettings = () => {
             <div className="w-full flex gap-2 flex-col text-gray-500">
                <h5 className="font-bold uppercase ">application</h5> 
                <div className="flex gap-5  items-center">
-                <Switch id="s1"/>
+                <Switch id="s1" className="cursor-pointer"/>
                 <Label htmlFor="s1" className="text-sm">Email me when someone follows me</Label>
                </div>
                <div className="flex gap-5  items-center">
-                <Switch id="s2"/>
+                <Switch id="s2" className="cursor-pointer"/>
                 <Label htmlFor="s2" className="text-sm">Email me when someone answers on my post</Label>
                </div>
                <div className="flex gap-5  items-center">
-                <Switch id="s3"/>
+                <Switch id="s3" className="cursor-pointer"/>
                 <Label htmlFor="s3" className="text-sm">Email me when someone mentions me</Label>
                </div>
 
@@ -28,15 +28,15 @@ const PlatformSettings = () => {
             <div className="w-full flex gap-2 flex-col text-gray-500">
                <h5 className="font-bold uppercase ">Account</h5> 
                <div className="flex gap-5  items-center">
-                <Switch id="s4"/>
+                <Switch id="s4" className="cursor-pointer"/>
                 <Label htmlFor="s4" className="text-sm">New launches and projects</Label>
                </div>
                <div className="flex gap-5  items-center">
-                <Switch id="s5"/>
+                <Switch id="s5" className="cursor-pointer"/>
                 <Label htmlFor="s5" className="text-sm">Monthly product updates</Label>
                </div>
                <div className="flex gap-5  items-center">
-                <Switch id="s6"/>
+                <Switch id="s6" className="cursor-pointer"/>
                 <Label htmlFor="s6" className="text-sm">Subscribe to newsletter</Label>
                </div>
 

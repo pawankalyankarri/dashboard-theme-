@@ -9,9 +9,9 @@ const ConversationsPage = () => {
                 {profiledata.conversation.map((item,idx)=>{
                     return(
                         <div key={idx} className="flex gap-4">
-                            <div><img src={item.icon} alt="" className="w-[80px] rounded-full" /></div>
+                            <div><img src={item.icon} alt="" className="w-[80px] cursor-pointer rounded-full" /></div>
                             <div className="flex flex-col w-full text-sm "><span className="font-bold">{item.name}</span><span className="text-gray-500">{item.msg}</span></div>
-                            <div className="uppercase font-bold text-blue-500 text-xs">reply</div>
+                            <div className="uppercase font-bold text-blue-500 text-xs cursor-pointer">reply</div>
                         </div>
                 
                     )

@@ -425,4 +425,6 @@ export const ProfilePageData : ProfilePageDataTypes = {
   ]
 
 }
+export const masterCard = "https://demos.creative-tim.com/material-dashboard-react/static/media/mastercard.27fca3e7637a9458fb64.png"
 
+export const localhost = "http://localhost:5173"

@@ -24,7 +24,7 @@ const AlertPage = () => {
             <Card className=" w-full h-full">
                 <CardHeader className="font-bold w-full">Alerts</CardHeader>
                 <CardContent className="grid gap-3">
-                    {notifications.map(item=>{
+                    {notifications.length === 0 ? <div className="text-center font-bold">Loading...</div> :    notifications.map(item=>{
                         return(
                             <Alert key={item.id} className={cn("p-3 py-5 text-white bg-red-300 flex justify-between",colors[ item.id % colors.length])}>
                                 <AlertDescription className="text-white text-md">{item.quote}</AlertDescription>

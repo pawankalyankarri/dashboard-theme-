@@ -24,7 +24,7 @@ const InvoicesPage = () => {
                                 <TableRow key={idx} className="hover:bg-transparent text-gray-700 border-b-0">
                                     <TableCell className="flex flex-col py-3"><span className="font-bold">{item.date}</span> <span>{item.numbers}</span></TableCell>
                                     <TableCell>${item.price}</TableCell>
-                                    <TableCell className=" font-bold cursor-pointer"><span><FontAwesomeIcon icon={faFilePdf} className="text-lg " /></span><span>PDF</span></TableCell>
+                                    <TableCell className=" font-bold cursor-pointer text-gray-500"><span><FontAwesomeIcon icon={faFilePdf} className="text-lg " /></span><span className="text-gray-800">PDF</span></TableCell>
                                 </TableRow>
                             )
                            })} 

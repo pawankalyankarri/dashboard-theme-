@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { faPen, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { masterCard } from "../AllData";
 
 const PaymentMethodCom = () => {
   return (
@@ -19,7 +20,7 @@ const PaymentMethodCom = () => {
         </CardHeader>
         <CardContent className="grid grid-cols-2 gap-5">
           <div className="font-bold text-gray-700 outline-1 rounded-lg p-5 flex justify-between ">
-            <span>img</span>
+            <span className="flex justify-center items-center"><img src={masterCard} alt="" className="w-[20px]" /></span>
             <span>**** **** **** 1234 </span>
             <span>
               <Tooltip>
