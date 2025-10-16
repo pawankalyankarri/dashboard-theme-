@@ -12,7 +12,7 @@ import {  faClock } from "@fortawesome/free-solid-svg-icons";
 import { Separator } from "@/components/ui/Separator";
 import DbLineChart from "./Charts/DbLineChart";
 import { cn } from "@/lib/utils";
-import { useEffect, useState} from "react";
+import { useEffect, useRef, useState} from "react";
 import CompaniesTable from "./CompaniesTable";
 import OrdersOverview from "./OrdersOverview";
 import axios from "axios";
@@ -41,6 +41,7 @@ export interface LineDatatype {
 const Dashboard = () => {
   const [barData,setBarData] = useState<BarChartDataType[]>([])
   const [lineData,setLineData] = useState<LineDatatype[]>([])
+  const mountFalg = useRef<boolean>(false)
 //  const chartsComponents : chartTypes[] = [
 //     {
 //       chart: DbBarChart,
@@ -66,6 +67,8 @@ const Dashboard = () => {
 //   ];  
 
   useEffect(()=>{
+    if(mountFalg.current) return;
+    mountFalg.current = true
     axios.get(DaySalesAPI).then(res=>setBarData(res.data)).catch(err=>console.log(err))
     axios.get(MonthSalesAPI).then(res=>setLineData(res.data)).catch(err=>console.log(err))
   },[])
