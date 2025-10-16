@@ -16,6 +16,7 @@ import {
   faHouse,
 } from "@fortawesome/free-solid-svg-icons";
 import { localhost } from "./AllData";
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 const HeaderCom = () => {
   const location = useLocation();
   //   console.log(location.pathname);
