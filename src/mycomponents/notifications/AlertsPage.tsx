@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { NotificationsAPI } from "../Allapis";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,7 +16,10 @@ interface NotificationsTypes {
 const AlertPage = () => {
     const [notifications,setNotifications] = useState<NotificationsTypes[]>([]);
     const colors = shadcnColors as string[]
+    const mountFalg = useRef<boolean>(false)
     useEffect(()=>{
+        if(mountFalg.current) return;
+        mountFalg.current = true;
         axios.get(NotificationsAPI).then(res=>setNotifications(res.data.quotes)).catch(err=>console.log(err))
     },[])
     return(

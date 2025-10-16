@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { UserAPI } from "../Allapis";
 import {
@@ -13,42 +13,41 @@ import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card } from "@/components/ui/card";
+import { Outlet, useNavigate } from "react-router-dom";
 
 export interface UserDataType {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  address: {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-    geo: {
-      lat: number;
-      lng: number;
-    };
-  };
-  icon : string,
-  status : string,
-  phone: string;
-  website: string;
-  company: {
-    name: string;
-    catchPhrase: string;
-    bs: string;
-  };
-}
-interface StatusType{
+    id :number,
+    name : string,
+    username : string,
+    email : string,
+    phone : string,
+    website : string,
+    address_street : string,
+    address_suite : string,
+    address_city : string,
+    address_zipcode : string,
+    address_geo_lat : number,
+    address_geo_lng : number,
+    company_name : string,
+    company_catchPhrase : string,
+    company_bs : string,
     icon : string,
-    status : string,
+    status : string
 }
+// interface StatusType{
+//     icon : string,
+//     status : string,
+// }
 const AuthorsTable = () => {
   const [usersData, setUsersData] = useState<UserDataType[]>([]);
+  const mountFalg = useRef<boolean>(false)
+  const navigate = useNavigate()
   useEffect(() => {
+    if(mountFalg.current) return;
+    mountFalg.current = true;
     axios
       .get(UserAPI)
-      .then((res) => setUsersData(res.data["employees"]))
+      .then((res) => setUsersData(res.data['msg']))
       .catch((err) => console.log(err));
   }, []);
   // const status : StatusType[] = [
@@ -95,8 +94,8 @@ const AuthorsTable = () => {
   // ];
   return (
     <div className="w-full h-full pt-10 font-sans">
+      <Outlet/>
       {usersData.length === 0 ?  (<div className="text-center font-bold">Loading.... </div>) : 
-
       <Card className="w-full h-full relative px-3">
         <div className="bg-blue-500 font-bold w-[96.6%] inset-shadow-xs inset-shadow-blue-800 shadow-md text-white p-6 rounded-lg absolute -top-6 left-4"> Authors Table</div>
         <Table className="mt-12 ">
@@ -126,7 +125,7 @@ const AuthorsTable = () => {
                     </div>
                   </TableCell>
                   <TableCell className="text-gray-700">
-                   <div className="flex flex-col text-xs"> <span className=" font-bold">{item.company.name}</span>
+                   <div className="flex flex-col text-xs"> <span className=" font-bold">{item.company_name}</span>
                     <span>{item.website}</span></div>
                   </TableCell>
                   <TableCell>
@@ -142,7 +141,7 @@ const AuthorsTable = () => {
                     </Badge>
                   </TableCell>
                   <TableCell className="text-gray-600 text-sm">{item.phone}</TableCell>
-                  <TableCell className="text-gray-600 text-xs font-bold cursor-pointer ">Edit</TableCell>
+                  <TableCell className="text-gray-600 text-xs font-bold cursor-pointer " onClick={()=>navigate('/table/editauthor',{state : {authorId : item.id}})}>Edit</TableCell>
                 </TableRow>
               );
             })}

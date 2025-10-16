@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { UserAPI } from "../Allapis";
 import type{ UserDataType } from "../table/AuthorsTable";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,9 +8,12 @@ import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const BillingInformation = () => {
     const [usersData,setUsersData] = useState<UserDataType[]>([])
+    const mountFalg = useRef<boolean>(false);
     useEffect(()=>{
-        axios.get(UserAPI).then(res=>setUsersData(res.data["employees"])).catch(err=>console.log(err))
-    },[usersData])
+        if(mountFalg.current) return;
+        mountFalg.current = true;
+        axios.get(UserAPI).then(res=>setUsersData(res.data["msg"])).catch(err=>console.log(err))
+    },[])
     return(
         <div>
             <Card>
@@ -28,9 +31,9 @@ const BillingInformation = () => {
                                         <span className="text-gray-700 uppercase text-center text-xs font-bold cursor-pointer"><FontAwesomeIcon icon={faPen} /> Edit</span>
                                     </div>
                                     <div className="w-full h-full flex flex-col text-xs text-gray-400">
-                                        <span>Company Name :&emsp; <span className="text-gray-700 font-bold">{item.company.name}</span></span>
+                                        <span>Company Name :&emsp; <span className="text-gray-700 font-bold">{item.company_name}</span></span>
                                         <span>Email Address : &emsp;<span className="text-gray-700 font-bold">{item.email}</span></span>
-                                        <span>VAT Number :&emsp; <span className="text-gray-700 font-bold">{item.address.zipcode}</span></span>
+                                        <span>VAT Number :&emsp; <span className="text-gray-700 font-bold">{item.phone}</span></span>
                                     </div>
                                 </div>
                             </CardContent>

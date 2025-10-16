@@ -10,6 +10,7 @@ import NotificationsPage from './mycomponents/notifications/NotificationsPage.ts
 import ProfilePage from './mycomponents/profile/ProfilePage.tsx'
 import SignInPage from './mycomponents/SignInPage.tsx'
 import SignUpPage from './mycomponents/SignUpPage.tsx'
+import EditAuthorTable from './mycomponents/table/EditAuthorTable.tsx'
 
 const router = createBrowserRouter([
   { path : '/',
@@ -28,7 +29,15 @@ const router = createBrowserRouter([
       {
         path : 'table',
         element : <TableCom/>,
+        children : [
+         {
+          path : "editauthor",
+          element : <EditAuthorTable/>
+         }
+
+        ]
       },
+     
       {
         path : "billing",
         element : <BillingCom/>
@@ -56,5 +65,5 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <RouterProvider router={router}/>
-  </StrictMode>,
+  </StrictMode>
 )
